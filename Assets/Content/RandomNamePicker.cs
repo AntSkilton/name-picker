@@ -1,56 +1,74 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using System.Collections.Generic;
-using UnityEngine.UI;
-
+using TMPro;
 
 public class RandomNamePicker : MonoBehaviour
 {
-//List of name
-// function to populate list on start
-// function to put name from alphabetic list into new list in below box at random
-// function to clear all from new list and revert back to the old list at the top.
-    
+    public List<string> SquadNames = new List<string>();
+    public List<string> ChosenNames = new List<string>();
+    public TextMeshProUGUI NamesAvailableText;
+    public TextMeshProUGUI ChosenNamesText;
 
-    public void ResetNames()
+     void Start()
     {
-        //TextMeshPro textMeshPro = GetComponent<textMeshPro>();
-        //textMeshPro.SetText(squadName);
-    } 
-
-    void Start()
+        Prime();
+    }
+public void Prime()
     {    
-        List<Name> squadName = new List<Name>();
-    
-        squadName.Add(new Name ("Ant"));
-        squadName.Add(new Name ("Ali"));
-        squadName.Add(new Name ("Toby"));
-        squadName.Add(new Name ("Oli"));
-        squadName.Add(new Name ("Marcus"));
-        squadName.Add(new Name ("Rags"));
-        squadName.Add(new Name ("Dan"));
-        squadName.Add(new Name ("Mars"));
-        squadName.Add(new Name ("Emaad"));
-        squadName.Add(new Name ("Ed"));
-        
-        squadName.Sort();
+        SquadNames.Add("Ant");
+        SquadNames.Add("Ali");
+        SquadNames.Add("Toby");
+        SquadNames.Add("Oli");
+        SquadNames.Add("Marcus");
+        SquadNames.Add("Rags");
+        SquadNames.Add("Dan");
+        SquadNames.Add("Mars");
+        SquadNames.Add("Emaad");
+        SquadNames.Add("Ed");
+        SquadNames.Sort();
 
-        Debug.Log(squadName);
+        //Check that GO is assigned
+        if (NamesAvailableText != null){
+            NamesAvailableText.SetText(string.Join(", ", SquadNames));
+        }
 
-        //for (<Name> in squadName)
-      // {
-      //      Debug.Log(ToString.(guy.squadName));
-     //   }
+        else{
+            Debug.LogError("Names Available is unassigned");
+        }
 
-   
-   
+        //Check that GO is assigned
+        if (ChosenNamesText != null){
+            ChosenNamesText.SetText(string.Join(", ", ChosenNames));
+        }
+
+        else{
+            Debug.LogError("Chosen Names is unassigned");
+        }
     }
 
-
-
-    void Update()
+    public void NamePick()
     {
-        
+        if (SquadNames.Count!=0){
+            int randIndex = Random.Range(0, SquadNames.Count);
+            ChosenNames.Add(SquadNames[randIndex]);
+            ChosenNamesText.SetText(string.Join(", ", ChosenNames));
+            
+            SquadNames.RemoveAt(randIndex);
+            NamesAvailableText.SetText(string.Join(", ", SquadNames));
+            
+        }
+        else{
+            Debug.LogError("List is empty. Reset names.");
+            return;
+        }
+    
+
+    }
+    public void ResetNames()
+    {
+        ChosenNames.Clear();
+        SquadNames.Clear();
+        Prime();
     }
 }
