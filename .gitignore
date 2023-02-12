@@ -10,7 +10,7 @@
 /[Ll]ogs/
 /[Uu]ser[Ss]ettings/
 
-/[Aa]ssets/*
+/[Aa]ssets/TextMesh Pro/
 ![Aa]ssets/**/Content/
 
 # MemoryCaptures can get excessive in size.
