@@ -1,21 +1,18 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-
 public class RandomNamePicker : MonoBehaviour
 {
-    public List<string> SquadNames = new List<string>();
-    public List<string> ChosenNames = new List<string>();
+    public List<string> SquadNames = new();
+    public List<string> ChosenNames = new();
     public TextMeshProUGUI NamesAvailableText;
     public TextMeshProUGUI ChosenNamesText;
 
-     void Start()
-    {
+    private void Start() {
         Prime();
     }
-     
-public void Prime()
+
+     private void Prime()
     {    
         SquadNames.Add("Ant");
         SquadNames.Add("Ali");
