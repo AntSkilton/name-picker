@@ -23,7 +23,7 @@ namespace NamePicker
 
         private void OnRemoveRecord()
         {
-            NameSlots[0].nameLabel.SetText("working");
+           // NameSlots[0].nameLabel.SetText("working");
         }
 
         public void AddRecord(String newName)

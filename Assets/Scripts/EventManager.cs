@@ -12,8 +12,7 @@ namespace NamePicker
         }
         
         public event Action OnRemoveRecord;
-        public void RemoveRecord()
-        {
+        public void RemoveRecord() {
             OnRemoveRecord?.Invoke();
         }
     }
