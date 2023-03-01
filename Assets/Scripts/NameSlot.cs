@@ -1,34 +1,51 @@
 ﻿using TMPro;
 using UnityEngine;
-using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 namespace NamePicker
 {
-    public class NameSlot : MonoBehaviour, IPointerClickHandler
+    public class NameSlot : MonoBehaviour
     {
         public TextMeshProUGUI nameLabel;
+        public TMP_InputField inputField;
+        public Button editBtn;
         public Button removeBtn;
 
-        private void OnEnable()
+        private bool m_isInEditMode = false;
+
+        public void SwapState(bool setInEditMode) 
         {
-            EventManager.Current.OnRemoveRecord += OnRemoveRecord;
-        }
-        
-        private void OnDisable()
-        {
-            EventManager.Current.OnRemoveRecord -= OnRemoveRecord;
+            m_isInEditMode = setInEditMode;
+            
+            switch (m_isInEditMode)
+            {
+                case true:
+                    inputField.gameObject.SetActive(true);
+                    inputField.ActivateInputField();
+                    nameLabel.gameObject.SetActive(false);
+                    editBtn.gameObject.SetActive(false);
+                    removeBtn.gameObject.SetActive(false);
+
+                    inputField.text = nameLabel.text;
+                    break;
+                
+                case false:
+                    inputField.gameObject.SetActive(false);
+                    inputField.DeactivateInputField();
+                    nameLabel.gameObject.SetActive(true);
+                    editBtn.gameObject.SetActive(true);
+                    removeBtn.gameObject.SetActive(true);
+                    break;
+            }
         }
 
-        private void OnRemoveRecord()
-        {
-            Debug.Log("OnRemoveRecord NameSlot");
-            Destroy(gameObject);
-        }
-		
-        public void OnPointerClick(PointerEventData eventData)
-        {
-            OnRemoveRecord(); 
+        public void OnEndEdit()
+        { 
+            SwapState(false);
+            nameLabel.text = inputField.text; // Todo: remove this as it'll be auto popped
+            
+            // send event to main to say this has been
+            // updated and redraw the view from there
         }
     }
 }

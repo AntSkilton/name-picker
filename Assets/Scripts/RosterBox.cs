@@ -11,7 +11,7 @@ namespace NamePicker
         public bool CanRemoveRecord = false;
         public Transform ScrollBoxContent;
 
-        private void OnEnable()
+        /*private void OnEnable()
         {
             EventManager.Current.OnRemoveRecord += OnRemoveRecord;
         }
@@ -24,7 +24,7 @@ namespace NamePicker
         private void OnRemoveRecord()
         {
            // NameSlots[0].nameLabel.SetText("working");
-        }
+        }*/
 
         public void AddRecord(String newName)
         {

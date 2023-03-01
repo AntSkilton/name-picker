@@ -3,13 +3,47 @@ using UnityEngine;
 
 namespace NamePicker
 {
-    public class GameManager : MonoBehaviour
+    public class UiController : MonoBehaviour
     {
         public Transform RostersVerticalLayout;
-        public RosterBox AllNamesRoster;
+        public GameObject NameSlotPrefab;
+        
+        public List<NameSlot> AllNameSlots { get; set; }
+        public GameObject Content;
+        
         public RosterBox OrderedRoster;
         public List<RosterBox> TeamRosters = new();
         private int m_rosterMode = 0; // 0=Ordered, 1=Red, 2= +Blue, 3= +Green, 4= +Yellow
+
+        private void OnEnable()
+        {
+            // Initialise content - messes with instantiation though
+            for (int i = 0; i < Content.transform.childCount; i++)
+            {
+                //Destroy(Content.transform.GetChild(i).gameObject);
+            }
+            
+            // Load previous name data from memory here?
+            AllNameSlots = new List<NameSlot>();
+            //Application.persistentDataPath
+            m_rosterMode = 1; // this doesnt work but the mode needs initialising too
+            PopulateRoster(OrderedRoster);
+        }
+
+        private void PopulateRoster(RosterBox roster)
+        {
+            var some = new NameSlot();
+            AllNameSlots.Add(some);
+            AllNameSlots.Add(some);
+            AllNameSlots.Add(some);
+
+            for (int i = 0; i < AllNameSlots.Count; i++)
+            {
+                Instantiate(NameSlotPrefab, Content.transform);
+                var slot = Content.gameObject.transform.GetChild(i).GetComponent<NameSlot>();
+                slot.nameLabel.text = "Ant Skilton";
+            }
+        }
 
         private void DeactivateAllRosters()
         {
