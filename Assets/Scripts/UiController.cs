@@ -3,12 +3,16 @@ using UnityEngine;
 
 namespace NamePicker
 {
+    /// <summary>
+    ///Business controller logic for record updates with view handling.
+    /// </summary>
+    
     public class UiController : MonoBehaviour
     {
         public Transform RostersVerticalLayout;
         public GameObject NameSlotPrefab;
-        
-        public List<NameSlot> AllNameSlots { get; set; }
+
+        public List<NameSlot> AllNameSlots = new();
         public GameObject Content;
         
         public RosterBox OrderedRoster;
@@ -17,31 +21,29 @@ namespace NamePicker
 
         private void OnEnable()
         {
-            // Initialise content - messes with instantiation though
-            for (int i = 0; i < Content.transform.childCount; i++)
-            {
-                //Destroy(Content.transform.GetChild(i).gameObject);
-            }
-            
-            // Load previous name data from memory here?
-            AllNameSlots = new List<NameSlot>();
-            //Application.persistentDataPath
-            m_rosterMode = 1; // this doesnt work but the mode needs initialising too
+            // Initialise view from data
             PopulateRoster(OrderedRoster);
+
+            m_rosterMode = 1; // this doesnt work but the mode needs initialising too
         }
 
-        private void PopulateRoster(RosterBox roster)
+        public void PopulateRoster(RosterBox roster)
         {
-            var some = new NameSlot();
-            AllNameSlots.Add(some);
-            AllNameSlots.Add(some);
-            AllNameSlots.Add(some);
-
-            for (int i = 0; i < AllNameSlots.Count; i++)
+            // Init and reset
+            var children = Content.transform.GetComponentsInChildren<NameSlot>();
+            for (int i = 0; i < children.Length; i++)
             {
-                Instantiate(NameSlotPrefab, Content.transform);
-                var slot = Content.gameObject.transform.GetChild(i).GetComponent<NameSlot>();
-                slot.nameLabel.text = "Ant Skilton";
+                Destroy(children[i].gameObject);
+            }
+            
+            // Instantiate
+            for (int i = 0; i < MainManager.Current.PersonData.Count; i++)
+            {
+                var newSlot = NameSlotPrefab;
+                var component = newSlot.GetComponent<NameSlot>();
+                component.recordId = MainManager.Current.PersonData[i].Id;
+                component.nameLabel.text = MainManager.Current.PersonData[i].Name;
+                Instantiate(newSlot, Content.transform);
             }
         }
 
@@ -53,6 +55,7 @@ namespace NamePicker
             }
             OrderedRoster.gameObject.SetActive(false);
         }
+        
         
         public void CycleRosterTypes()
         {
@@ -120,13 +123,6 @@ namespace NamePicker
            // ChosenNames.Clear();
             //SquadNames.Clear();
             Prime();
-        }
-
-
-        public void OnAddRecord()
-        {
-            var newRecord = TouchScreenKeyboard.Open(name);
-            Debug.Log(newRecord.text);
         }
     }   
 }

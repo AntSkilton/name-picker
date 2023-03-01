@@ -1,9 +1,14 @@
-﻿using TMPro;
+﻿using System;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 namespace NamePicker
 {
+    /// <summary>
+    /// This view object is responsible for dispatching events and sending
+    /// them off to the Main Manager to handle data updates before repainting the GUI.
+    /// </summary>
     public class NameSlot : MonoBehaviour
     {
         public TextMeshProUGUI nameLabel;
@@ -11,11 +16,24 @@ namespace NamePicker
         public Button editBtn;
         public Button removeBtn;
 
-        private bool m_isInEditMode = false;
+        [HideInInspector] public string recordId = String.Empty;
+        private bool m_isInEditMode;
 
-        public void SwapState(bool setInEditMode) 
+        private void OnEnable()
         {
-            m_isInEditMode = setInEditMode;
+            editBtn.onClick.AddListener(OnStartEdit);
+            inputField.onEndEdit.AddListener(OnEndEdit);
+        }
+
+        private void OnDisable()
+        {
+            editBtn.onClick.RemoveListener(OnStartEdit);
+            inputField.onEndEdit.RemoveListener(OnEndEdit);
+        }
+
+        public void EditSlotState(bool inEditMode) 
+        {
+            m_isInEditMode = inEditMode;
             
             switch (m_isInEditMode)
             {
@@ -39,13 +57,15 @@ namespace NamePicker
             }
         }
 
-        public void OnEndEdit()
+        private void OnStartEdit()
+        {
+            EditSlotState(true);
+        }
+
+        private void OnEndEdit(string newName)
         { 
-            SwapState(false);
-            nameLabel.text = inputField.text; // Todo: remove this as it'll be auto popped
-            
-            // send event to main to say this has been
-            // updated and redraw the view from there
+            EditSlotState(false);
+            MainManager.Current.UpdateRecord(recordId, newName);
         }
     }
 }
