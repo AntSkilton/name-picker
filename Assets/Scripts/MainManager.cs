@@ -63,15 +63,16 @@ namespace NamePicker
             UiController.PopulateRoster(null);
         }
         
-        public void DeleteRecord(string newName)
+        public void DeleteRecord(string recordId)
         {
-            PersonData item = new PersonData()
+            for (int i = 0; i < PersonData.Count; i++)
             {
-                Id = Guid.NewGuid().ToString(),
-                Name = newName,
-            };
-           
-            PersonData.Add(item);
+                if (PersonData[i].Id == recordId)
+                {
+                    PersonData.RemoveAt(i);
+                }
+            }
+            
             SaveRecordsToJson();
             
             // Repaint GUI
@@ -91,9 +92,9 @@ namespace NamePicker
             var data = JsonConvert.DeserializeObject<PersonDatas>(json);
             
             PersonData.Clear();
-            for (int i = 0; i < data.PersonData.Count; i++)
+            for (int i = 0; i < data.PersonDataList.Count; i++)
             {
-                PersonData.Add(data.PersonData[i]);    
+                PersonData.Add(data.PersonDataList[i]);    
             }
         }
 
@@ -102,10 +103,13 @@ namespace NamePicker
            var datas = new PersonDatas();
            for (int i = 0; i < PersonData.Count; i++)
            {
-               var data = new PersonData();
-               data.Id = PersonData[i].Id;
-               data.Name = PersonData[i].Name;
-               datas.Add(data);
+               // Needs new object as classes are reference types
+               var data = new PersonData
+               {
+                   Id = PersonData[i].Id,
+                   Name = PersonData[i].Name
+               };
+               datas.PersonDataList.Add(data);
            }
 
            string json = JsonUtility.ToJson(datas, true);

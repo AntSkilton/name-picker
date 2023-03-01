@@ -21,17 +21,24 @@ namespace NamePicker
 
         private void OnEnable()
         {
-            editBtn.onClick.AddListener(OnStartEdit);
             inputField.onEndEdit.AddListener(OnEndEdit);
+            editBtn.onClick.AddListener(OnStartEdit);
+            removeBtn.onClick.AddListener(OnRemoveSlot);
         }
 
         private void OnDisable()
         {
-            editBtn.onClick.RemoveListener(OnStartEdit);
             inputField.onEndEdit.RemoveListener(OnEndEdit);
+            editBtn.onClick.RemoveListener(OnStartEdit);
+            removeBtn.onClick.RemoveListener(OnRemoveSlot);
         }
 
-        public void EditSlotState(bool inEditMode) 
+        private void OnRemoveSlot()
+        {
+            MainManager.Current.DeleteRecord(recordId);
+        }
+
+        private void EditSlotState(bool inEditMode) 
         {
             m_isInEditMode = inEditMode;
             

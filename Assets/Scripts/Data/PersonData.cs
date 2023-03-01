@@ -6,12 +6,7 @@ namespace NamePicker.Data
     [Serializable]
     public class PersonDatas
     {
-        public List<PersonData> PersonData = new();
-
-        public void Add(PersonData data)
-        {
-            PersonData.Add(data);
-        }
+        public List<PersonData> PersonDataList = new();
     }
     
     [Serializable]
