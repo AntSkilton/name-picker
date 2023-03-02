@@ -33,7 +33,7 @@ namespace NamePicker
             removeBtn.onClick.RemoveListener(OnRemoveSlot);
         }
 
-        private void OnRemoveSlot()
+        public void OnRemoveSlot()
         {
             MainManager.Current.DeleteRecord(recordId);
         }
@@ -64,7 +64,7 @@ namespace NamePicker
             }
         }
 
-        private void OnStartEdit()
+        public void OnStartEdit()
         {
             EditSlotState(true);
         }

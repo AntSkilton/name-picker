@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace NamePicker
@@ -55,13 +56,12 @@ namespace NamePicker
             }
             OrderedRoster.gameObject.SetActive(false);
         }
-        
-        
+
         public void CycleRosterTypes()
         {
             DeactivateAllRosters();
             m_rosterMode++;
-            
+
             switch (m_rosterMode)
             {
                 case 0 or > 3: // Ordered
@@ -70,37 +70,39 @@ namespace NamePicker
                     m_rosterMode = 0;
                     return;
                 }
-                
+
                 case 1: // Red and Blue
                 {
-                    for (int i = 0; i < 2; i++) { TeamRosters[i].gameObject.SetActive(true); }
+                    for (int i = 0; i < 2; i++)
+                    {
+                        TeamRosters[i].gameObject.SetActive(true);
+                    }
+
                     return;
                 }
-                
+
                 case 2: // Red, Blue and Green
                 {
-                    for (int i = 0; i < 3; i++) { TeamRosters[i].gameObject.SetActive(true); }
+                    for (int i = 0; i < 3; i++)
+                    {
+                        TeamRosters[i].gameObject.SetActive(true);
+                    }
+
                     return;
                 }
-                
+
                 case 3: // Red, Blue, Green and Yellow
                 {
-                    for (int i = 0; i < 4; i++) { TeamRosters[i].gameObject.SetActive(true); }
+                    for (int i = 0; i < 4; i++)
+                    {
+                        TeamRosters[i].gameObject.SetActive(true);
+                    }
+
                     return;
                 }
             }
         }
 
-        private void Prime()
-        {    
-            /*AllNames.AddRecord("Ant");
-            AllNames.AddRecord("Ant 1");
-            AllNames.AddRecord("Ant 2");
-            AllNames.AddRecord("Ant 3");*/
-           
-            //AllNames.Sort();
-        }
-    
         /*
         public void NamePick()
         {
@@ -118,11 +120,5 @@ namespace NamePicker
                 return;
             }
         }*/
-        public void ResetNames()
-        {
-           // ChosenNames.Clear();
-            //SquadNames.Clear();
-            Prime();
-        }
     }   
 }

@@ -1,24 +1,24 @@
 {
-    "PersonData": [
+    "PersonDataList": [
         {
-            "Id": "6d6969e7-7f00-44b3-9af9-c1055ec668a1",
-            "Name": "trtr"
+            "Id": "3132867b-55b9-4519-b72a-d332830d66d8",
+            "Name": "Player"
         },
         {
-            "Id": "6d6969e7-7f00-44b3-9af9-c1055ec668a1",
-            "Name": "trtr"
+            "Id": "5585c775-7e8f-474f-8dd3-2a953ec2e425",
+            "Name": "Player"
         },
         {
-            "Id": "6d6969e7-7f00-44b3-9af9-c1055ec668a1",
-            "Name": "trtr"
+            "Id": "ffeaf186-319c-4566-baac-38a6f65cebde",
+            "Name": "Player"
         },
         {
-            "Id": "6d6969e7-7f00-44b3-9af9-c1055ec668a1",
-            "Name": "trtr"
+            "Id": "bf65ed6d-0dfd-4700-a33c-11ce66d0570b",
+            "Name": "hello"
         },
         {
-            "Id": "6d6969e7-7f00-44b3-9af9-c1055ec668a1",
-            "Name": "trtr"
+            "Id": "429614c2-4c6b-4013-af2a-f5ed1d3a9ceb",
+            "Name": "this works"
         }
     ]
 }

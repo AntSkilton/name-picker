@@ -9,7 +9,9 @@
 [Bb]uilds/
 /[Ll]ogs/
 /[Uu]ser[Ss]ettings/
-/Assets/Editor
+/Assets/Editor/
+/Assets/Plugins/
+!/Assets/Plugins*.meta
 
 /[Aa]ssets/TextMesh Pro/
 ![Aa]ssets/**/Content/

@@ -16,13 +16,12 @@ namespace NamePicker
         public static MainManager Current;
         public UiController UiController;
         [HideInInspector] public List<PersonData> PersonData = new();
-        
         private string m_dataPath;
 
         private void Awake()
         {
             Current = this;
-            m_dataPath = Application.dataPath + "/PersonDataFile.json";
+            m_dataPath = Application.persistentDataPath + "/PersonDataFile.json";
             
             if (!File.Exists(m_dataPath))
             {
@@ -114,6 +113,6 @@ namespace NamePicker
 
            string json = JsonUtility.ToJson(datas, true);
            File.WriteAllText(m_dataPath, json);
-        }
+       }
     }
 }
