@@ -675,11 +675,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c4e547f3f784ec183af9289ff47ca38, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  NameSlotPrefab: {fileID: 5450799186039886911, guid: dde597879783fd4488d6f09d99d24c14, type: 3}
   Content: {fileID: 1479173272343317967}
-  NameSlotPrefab: {fileID: 7247216164033434060, guid: dde597879783fd4488d6f09d99d24c14, type: 3}
-  NameSlots: []
-  CanRemoveRecord: 0
-  ScrollBoxContent: {fileID: 0}
+  ShouldShowEditButtons: 0
 --- !u!222 &1479173274164912398
 CanvasRenderer:
   m_ObjectHideFlags: 0

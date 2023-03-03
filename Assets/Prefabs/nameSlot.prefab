@@ -309,7 +309,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Player
+  m_text: 2
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d9b183010f2cd9d4680141a6c26cb62d, type: 2}
   m_sharedMaterial: {fileID: 47838513479169905, guid: d9b183010f2cd9d4680141a6c26cb62d, type: 2}
@@ -407,7 +407,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &5450799184929264984
 RectTransform:
   m_ObjectHideFlags: 0
@@ -547,7 +547,7 @@ MonoBehaviour:
   inputField: {fileID: 4313515856941744730}
   editBtn: {fileID: 5289872410009224496}
   removeBtn: {fileID: 4571090454097607530}
-  recordId: fe61ef62-0f87-4485-a205-a22cee2f2d82
+  recordId: 1c67010e-083c-4ab7-9565-b0ade0b203ae
 --- !u!1 &5721737324471690329
 GameObject:
   m_ObjectHideFlags: 0
@@ -1102,7 +1102,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &9032519992456646229
 RectTransform:
   m_ObjectHideFlags: 0
