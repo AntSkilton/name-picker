@@ -377,7 +377,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 18
+  m_fontSize: 83.75
   m_fontSizeBase: 70
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -540,7 +540,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1479173273730487745}
   m_HandleRect: {fileID: 1479173273730487744}
   m_Direction: 2
-  m_Value: 1
+  m_Value: 0
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -675,9 +675,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c4e547f3f784ec183af9289ff47ca38, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Content: {fileID: 1479173272343317967}
   NameSlotPrefab: {fileID: 7247216164033434060, guid: dde597879783fd4488d6f09d99d24c14, type: 3}
   NameSlots: []
   CanRemoveRecord: 0
+  ScrollBoxContent: {fileID: 0}
 --- !u!222 &1479173274164912398
 CanvasRenderer:
   m_ObjectHideFlags: 0

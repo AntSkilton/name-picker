@@ -43,7 +43,7 @@ namespace NamePicker
            SaveRecordsToJson();
            
            // Repaint GUI
-           UiController.PopulateRoster(null);
+           UiController.DrawRosters();
         }
         
         public void UpdateRecord(string recordId, string newName)
@@ -59,7 +59,7 @@ namespace NamePicker
             SaveRecordsToJson();
             
             // Repaint GUI
-            UiController.PopulateRoster(null);
+            UiController.DrawRosters();
         }
         
         public void DeleteRecord(string recordId)
@@ -75,14 +75,14 @@ namespace NamePicker
             SaveRecordsToJson();
             
             // Repaint GUI
-            UiController.PopulateRoster(null);
+            UiController.DrawRosters();
         }
 
         public void DeleteAllRecords()
         {
             PersonData.Clear();
             SaveRecordsToJson();
-            UiController.PopulateRoster(null);
+            UiController.DrawRosters();
         }
 
         private void LoadRecordsFromJson()

@@ -38,7 +38,13 @@ namespace NamePicker
             MainManager.Current.DeleteRecord(recordId);
         }
 
-        private void EditSlotState(bool inEditMode) 
+        public void SetEditableButtons(bool showButtons)
+        {
+            editBtn.gameObject.SetActive(showButtons);
+            removeBtn.gameObject.SetActive(showButtons);
+        }
+
+        private void SlotEditState(bool inEditMode) 
         {
             m_isInEditMode = inEditMode;
             
@@ -66,12 +72,12 @@ namespace NamePicker
 
         public void OnStartEdit()
         {
-            EditSlotState(true);
+            SlotEditState(true);
         }
 
         private void OnEndEdit(string newName)
         { 
-            EditSlotState(false);
+            SlotEditState(false);
             MainManager.Current.UpdateRecord(recordId, newName);
         }
     }

@@ -66,7 +66,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u200B"
+  m_text: "grgf\u200B"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d9b183010f2cd9d4680141a6c26cb62d, type: 2}
   m_sharedMaterial: {fileID: 47838513479169905, guid: d9b183010f2cd9d4680141a6c26cb62d, type: 2}
@@ -309,7 +309,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Firstname Lastname
+  m_text: Player
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d9b183010f2cd9d4680141a6c26cb62d, type: 2}
   m_sharedMaterial: {fileID: 47838513479169905, guid: d9b183010f2cd9d4680141a6c26cb62d, type: 2}
@@ -547,7 +547,7 @@ MonoBehaviour:
   inputField: {fileID: 4313515856941744730}
   editBtn: {fileID: 5289872410009224496}
   removeBtn: {fileID: 4571090454097607530}
-  recordId: 
+  recordId: fe61ef62-0f87-4485-a205-a22cee2f2d82
 --- !u!1 &5721737324471690329
 GameObject:
   m_ObjectHideFlags: 0
@@ -807,7 +807,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6910950052703166685}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
@@ -1073,7 +1073,7 @@ MonoBehaviour:
   m_CaretColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
   m_CustomCaretColor: 0
   m_SelectionColor: {r: 0.65882355, g: 0.80784315, b: 1, a: 0.7529412}
-  m_Text: 
+  m_Text: grgf
   m_CaretBlinkRate: 0.85
   m_CaretWidth: 2
   m_ReadOnly: 0
